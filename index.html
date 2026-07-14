@@ -111,29 +111,16 @@
   .section-head h2{ font-size:clamp(20px,2.6vw,26px); font-weight:800; letter-spacing:-0.01em; }
   .section-head p{ font-family:var(--body); color:var(--ink-muted); font-size:15px; margin-top:6px; }
 
-  /* ---- featured projects ---- */
-  .proj-list{ display:flex; flex-direction:column; gap:18px; }
-  .proj{
-    border:1px solid var(--line); border-radius:var(--radius); background:var(--surface);
-    box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column;
-    transition:transform 0.18s ease, box-shadow 0.18s ease;
-  }
-  .proj:hover{ transform:translateY(-2px); box-shadow:0 4px 10px rgba(20,24,29,0.08), 0 18px 34px rgba(20,24,29,0.10); }
-  .proj-art{ height:120px; }
-  .proj-body{ padding:20px 24px 22px; display:flex; flex-direction:column; gap:6px; }
-  .proj-top{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-  .proj h3{ font-size:19px; font-weight:800; }
-  .proj-cat{ font-family:var(--body); font-weight:600; font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent); white-space:nowrap; }
-  .proj p{ font-family:var(--body); font-size:15px; line-height:1.5; color:var(--ink-muted); }
-  .proj-foot{ display:flex; justify-content:flex-end; margin-top:8px; }
-  .proj-link{
-    font-family:var(--body); font-weight:600; font-size:11.5px; letter-spacing:0.04em; color:var(--accent);
-    text-decoration:underline; text-decoration-style:dotted; text-underline-offset:3px;
-    text-decoration-color:color-mix(in srgb, var(--accent) 45%, transparent);
-    display:inline-flex; align-items:center; gap:6px;
-    transition:color 0.15s ease, gap 0.15s ease;
-  }
-  .proj-link:hover{ gap:9px; }
+  /* ---- featured projects: magazine-style image grid ---- */
+  .proj-list{ display:grid; grid-template-columns:1fr 1fr; gap:36px 32px; }
+  @media (max-width:640px){ .proj-list{grid-template-columns:1fr;} }
+  .proj{ text-decoration:none; color:inherit; display:block; }
+  .proj-art{ aspect-ratio:4/3; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); transition:transform 0.2s ease; }
+  .proj:hover .proj-art{ transform:translateY(-3px); }
+  .proj-body{ padding-top:16px; display:flex; flex-direction:column; gap:4px; }
+  .proj h3{ font-size:20px; font-weight:800; }
+  .proj-cat{ font-family:var(--body); font-weight:600; font-size:13px; color:var(--accent); }
+  .proj p{ font-family:var(--body); font-size:14.5px; line-height:1.5; color:var(--ink-muted); margin-top:4px; }
 
   /* ---- capabilities ---- */
   .cap-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
@@ -216,36 +203,36 @@
           <article class="proj">
             <div class="proj-art" style="background:linear-gradient(120deg,#1E2A3D,color-mix(in srgb,#1E2A3D 55%,white));"></div>
             <div class="proj-body">
-              <div class="proj-top"><h3>Requis</h3><span class="proj-cat">Enterprise UI Design</span></div>
+              <h3>Requis</h3>
+              <span class="proj-cat">Enterprise UI Design</span>
               <p>Making procurement software easier to navigate.</p>
-              <div class="proj-foot"><a class="proj-link" href="#">View Project →</a></div>
             </div>
           </article>
 
           <article class="proj">
             <div class="proj-art" style="background:linear-gradient(120deg,#2B5B7D,color-mix(in srgb,#2B5B7D 55%,white));"></div>
             <div class="proj-body">
-              <div class="proj-top"><h3>Sincera Studio</h3><span class="proj-cat">AI Experience Design</span></div>
+              <h3>Sincera Studio</h3>
+              <span class="proj-cat">AI Experience Design</span>
               <p>Designing conversational experiences for career growth and personal development.</p>
-              <div class="proj-foot"><a class="proj-link" href="#">View Project →</a></div>
             </div>
           </article>
 
           <article class="proj">
-            <div class="proj-art" style="background:linear-gradient(120deg,#4F6F5A,color-mix(in srgb,#4F6F5A 55%,white));"></div>
+            <div class="proj-art" style="background:linear-gradient(120deg,#B65A3A,color-mix(in srgb,#B65A3A 55%,white));"></div>
             <div class="proj-body">
-              <div class="proj-top"><h3>Mzingo Wild Adventures</h3><span class="proj-cat">Website Design &amp; Brand Experience</span></div>
-              <p>Helping travelers confidently plan their safari.</p>
-              <div class="proj-foot"><a class="proj-link" href="#">View Project →</a></div>
+              <h3>Music Accelerator</h3>
+              <span class="proj-cat">Brand + Website</span>
+              <p>Brand identity and marketing site for an online music education platform.</p>
             </div>
           </article>
 
           <article class="proj">
             <div class="proj-art" style="background:linear-gradient(120deg,#C4962E,color-mix(in srgb,#C4962E 55%,white));"></div>
             <div class="proj-body">
-              <div class="proj-top"><h3>Holder General Engineering</h3><span class="proj-cat">Brand + Website</span></div>
+              <h3>Holder General Engineering</h3>
+              <span class="proj-cat">Brand + Website</span>
               <p>Creating trust through a modern digital presence.</p>
-              <div class="proj-foot"><a class="proj-link" href="#">View Project →</a></div>
             </div>
           </article>
 

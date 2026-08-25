@@ -226,6 +226,8 @@
 
   .cs-content{ max-width:740px; }
   .cs-content h2{ font-size:clamp(20px,2.6vw,26px); letter-spacing:-0.01em; margin-bottom:16px; }
+  .cs-content h2:not(:first-child){ margin-top:40px; }
+  .cs-content h3{ font-family:var(--display); font-weight:700; font-size:clamp(17px,2vw,20px); letter-spacing:-0.01em; margin-bottom:12px; }
   .cs-content p{ font-family:var(--body); font-size:16px; line-height:1.75; color:var(--ink-muted); margin-bottom:16px; }
   .cs-content p:last-child{ margin-bottom:0; }
 
@@ -306,7 +308,7 @@
     <div class="cs-hero-solo">
       <div class="cs-eyebrow">Enterprise SaaS · Product Design</div>
       <h1>Requis — Simplifying Complex Enterprise Workflows</h1>
-      <p class="ds-lede">I improved experiences across Requis, a B2B supply chain platform, simplifying complex workflows through clearer information architecture, intuitive interactions, and responsive UI.</p>
+      <p class="ds-lede">I designed and improved experiences across Requis, a B2B supply chain platform — simplifying complex workflows through clearer information architecture, intuitive interactions, and responsive UI.</p>
       <div class="cs-meta">
         <div class="cs-meta-item"><span class="cs-meta-label">Role</span><span class="cs-meta-value">Product Designer</span></div>
         <div class="cs-meta-item"><span class="cs-meta-label">Timeline</span><span class="cs-meta-value">Jul 2024 – Jan 2026</span></div>
@@ -319,8 +321,9 @@
 <section class="section">
   <div class="wrap cs-content">
     <h2>Overview</h2>
-    <p>I worked across Marketplace, Procurement, CRM, Supplier Storefront, onboarding, and other areas of the Requis platform.</p>
-    <p>Much of my work involved improving existing features — understanding where users were getting stuck and making complex workflows easier to navigate without disrupting familiar processes.</p>
+    <p>I worked across Marketplace, Procurement, CRM, Supplier Storefront, Lot Management, and other areas of the Requis platform.</p>
+    <p>Much of my work involved improving existing features while supporting new product experiences — identifying where complex workflows created friction and working closely with Product and Engineering to make them clearer without disrupting processes users already relied on.</p>
+    <p>One example was Lot Management, where recurring customer support requests helped us identify opportunities to make a complex workflow easier to understand and navigate.</p>
   </div>
   <div class="wrap">
     <div class="cs-ph"><span>3–4 product screens<small>overview of the platform</small></span></div>
@@ -331,15 +334,18 @@
   <div class="wrap">
     <div class="cs-chapter">A Closer Look — Lot Management</div>
     <div class="cs-content">
-      <h2>The Challenge</h2>
-      <p>Lot Management helps users prepare and manage surplus materials before listing them for sale through Buy Now, Make Offer, Auction, or Inquire. The functionality was there, but parts of the experience were difficult to understand.</p>
+      <p>Lot Management helps users prepare and manage surplus materials before listing them for sale through Buy Now, Make Offer, Auction, or Inquire.</p>
+      <h2>How We Identified the Problem</h2>
+      <p>Recurring support requests were one way our team identified friction in the product.</p>
+      <p>I joined feedback sessions with our customer-facing team, Product, and Engineering, where we reviewed issues customers were repeatedly asking for help with. When similar questions appeared across multiple support requests, we treated them as a signal that something in the experience might not be clear enough.</p>
+      <p>After these sessions, our product team walked through the existing experience using the customer feedback as context to understand where users might be getting stuck.</p>
+      <p>I then explored the relevant user journeys in more depth, looking for confusing interactions, unclear navigation, and places where the interface didn't match what a user might reasonably expect.</p>
+      <h2>From Feedback to Design</h2>
+      <p>I brought my findings back to Product and front-end Engineering so we could review the problems together and discuss technical considerations.</p>
+      <p>From there, I researched comparable platforms and relevant UX patterns to understand how similar problems were being approached elsewhere. Those findings helped inform my initial design explorations.</p>
+      <p>I presented the designs to Product and Engineering, incorporated feedback, and refined the solutions before preparing them for development.</p>
+      <p>Three areas became a particular focus: <b>action clarity, filtering, and navigation through long editing workflows.</b></p>
     </div>
-    <div class="cs-issues">
-      <div class="cs-pcard"><h3>Unclear actions</h3><p>Important controls relied heavily on icons, making their purpose difficult to understand at a glance.</p></div>
-      <div class="cs-pcard"><h3>Upload vs. preview</h3><p>Managing images and viewing existing images weren't clearly separated.</p></div>
-      <div class="cs-pcard"><h3>Navigation</h3><p>Users needed clearer context when moving between managing a lot and understanding how it would appear in the Marketplace.</p></div>
-    </div>
-    <div class="cs-ph"><span>Original Lot Management screen<small>the starting point</small></span></div>
   </div>
 </section>
 
@@ -349,50 +355,69 @@
     <div class="cs-change">
       <div class="cs-num2">01</div>
       <div class="cs-change-body">
-        <h3>Made actions easier to understand</h3>
-        <p>I added clearer labels and hierarchy around important controls instead of relying primarily on icons. The goal was simple: users shouldn't have to guess what an action does.</p>
-        <div class="cs-ba"><div class="cs-ph small-ph"><span>Before</span></div><div class="cs-ph small-ph"><span>After</span></div></div>
+        <h3>Made key actions more explicit</h3>
+        <p>The Lot Listing Preview relied on icon-only controls for several management actions. During my review of the workflow, I identified these controls as a potential source of ambiguity because users had to recognize each icon before knowing what action was available.</p>
+        <p>I paired the icons with visible text labels for actions such as <b>Unlist Lot, Edit Lot, Attach, Edit Images, Add Assets, and Go Back</b>, making the available actions explicit without changing where users accessed them.</p>
+        <div class="cs-ba">
+          <div class="cs-ph small-ph"><span>Before — Lot Listing Preview<small>Management actions relied on icons alone.</small></span></div>
+          <div class="cs-ph small-ph"><span>After — Lot Listing Preview<small>Visible labels made each action easier to identify at a glance.</small></span></div>
+        </div>
       </div>
     </div>
     <div class="cs-change">
       <div class="cs-num2">02</div>
       <div class="cs-change-body">
-        <h3>Clarified image management</h3>
-        <p>I created a clearer distinction between uploading and managing images and previewing how those images would appear. This made the purpose of each part of the experience easier to understand.</p>
-        <div class="cs-ba"><div class="cs-ph small-ph"><span>Before</span></div><div class="cs-ph small-ph"><span>After</span></div></div>
+        <h3>Made filtering easier to discover and manage</h3>
+        <p>Managing a large number of lots required users to narrow the list by attributes such as sale method and status, but the available filtering options weren't immediately visible from the main Lot Management view.</p>
+        <p>I introduced a dedicated filter panel that kept the lot list visible while users refined their results. Active selections were surfaced above the table, making it easier to understand which filters were affecting the results and remove individual filters when needed.</p>
+        <div class="cs-ba">
+          <div class="cs-ph small-ph"><span>Before — Manage Lots<small>Filtering options weren't visible from the main list view.</small></span></div>
+          <div class="cs-ph small-ph"><span>After — Manage Lots + Filter Panel<small>A dedicated filter panel exposed available options while active filters remained visible above the lot list.</small></span></div>
+        </div>
       </div>
     </div>
     <div class="cs-change">
       <div class="cs-num2">03</div>
       <div class="cs-change-body">
-        <h3>Improved navigation</h3>
-        <p>I introduced clearer navigation cues and a more obvious way to move through the workflow. Small changes helped users understand where they were and what they could do next.</p>
-        <div class="cs-ba"><div class="cs-ph small-ph"><span>Before</span></div><div class="cs-ph small-ph"><span>After</span></div></div>
+        <h3>Made long editing workflows easier to navigate</h3>
+        <p>The Edit Lot experience contained multiple sections of information, but the overall structure wasn't visible from the main editing view. Users had little indication of what information was available or where to find it as they moved through the workflow.</p>
+        <p>I introduced persistent section navigation for key areas — including <b>Info, Description, Seller Terms, Finance, Questions, Inspection, Shipping/Pickup, and Images</b> — so users could see the structure of the lot and move directly to the information they needed.</p>
+        <div class="cs-ba">
+          <div class="cs-ph small-ph"><span>Before — Edit Lot<small>Sections of the lot weren't visible from the main editing view.</small></span></div>
+          <div class="cs-ph small-ph"><span>After — Edit Lot + Section Navigation<small>Persistent section navigation made the structure of the lot visible and provided direct access to each section.</small></span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="section">
+  <div class="wrap cs-content">
+    <h2>Validation &amp; Outcome</h2>
+    <p>The redesigned experience was released behind a feature flag and tested with selected users through our customer-facing team.</p>
+    <p>During testing, users were able to navigate and manage their lots without needing support during the workflow. Based on those results, the changes were released more broadly.</p>
+  </div>
+</section>
+
+<section class="section">
   <div class="wrap">
-    <div class="section-head"><h2>Designing Across the Platform</h2><p>The same approach extended beyond Lot Management to other areas of the Requis platform.</p></div>
+    <div class="section-head"><h2>Designing Across the Platform</h2><p>The same approach extended beyond Lot Management to other areas of Requis.</p></div>
     <div class="cs-grid2">
-      <div class="cs-area"><h3>Marketplace</h3><p>Improved hierarchy, responsive layouts, and browsing experiences across the Marketplace.</p><div class="cs-ph"><span>Marketplace screen</span></div></div>
-      <div class="cs-area"><h3>Procurement</h3><p>Refined responsive interfaces and interactions across procurement workflows.</p><div class="cs-ph"><span>Procurement screen</span></div></div>
+      <div class="cs-area"><h3>Marketplace</h3><p>Improved hierarchy, navigation, responsive layouts, and browsing experiences across the Marketplace.</p><div class="cs-ph"><span>Marketplace screen</span></div></div>
+      <div class="cs-area"><h3>Procurement</h3><p>Designed and refined responsive interfaces and interactions across complex procurement workflows.</p><div class="cs-ph"><span>Procurement screen</span></div></div>
       <div class="cs-area"><h3>CRM</h3><p>Designed experiences for managing buyers, sellers, contacts, and Salesforce-imported information.</p><div class="cs-ph"><span>CRM screen</span></div></div>
-      <div class="cs-area"><h3>Supplier Storefront</h3><p>Improved how supplier information and products were presented within the Marketplace experience.</p><div class="cs-ph"><span>Supplier Storefront screen</span></div></div>
+      <div class="cs-area"><h3>Supplier Storefront</h3><p>Improved how supplier information and available products were presented within the Marketplace experience.</p><div class="cs-ph"><span>Supplier Storefront screen</span></div></div>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head"><h2>Designing for Consistency</h2><p>Working across different areas of the platform meant thinking beyond individual screens. I used familiar layouts, interaction patterns, components, and visual hierarchy to make the experience feel more consistent as users moved between features.</p></div>
+    <div class="section-head"><h2>Designing for Consistency</h2><p>Working across multiple areas of a large platform meant thinking beyond individual screens. I used familiar layouts, interaction patterns, components, and visual hierarchy to create experiences that felt connected as users moved between different parts of the product.</p></div>
     <div class="cs-issues">
       <div class="cs-pcard"><h3>Reusable patterns</h3><p>Used familiar interactions and components that could work across multiple features.</p></div>
       <div class="cs-pcard"><h3>Clear hierarchy</h3><p>Created consistent treatment of primary information, actions, and supporting content.</p></div>
       <div class="cs-pcard"><h3>Responsive behavior</h3><p>Considered how layouts and interactions adapted across different screen sizes.</p></div>
-      <div class="cs-pcard"><h3>Consistent UI</h3><p>Applied familiar spacing, typography, controls, and interaction patterns throughout my work.</p></div>
     </div>
     <div class="cs-ph"><span>Components · repeated UI patterns · responsive examples</span></div>
   </div>
@@ -401,15 +426,18 @@
 <section class="section">
   <div class="wrap cs-content">
     <h2>Working With Product &amp; Engineering</h2>
-    <p>I worked closely with Product Managers and Engineers in an Agile environment, iterating as features moved from design into development.</p>
-    <p>Reviewing implementations, discussing technical constraints, and incorporating feedback helped keep the final experience aligned with the design intent.</p>
+    <p>Collaboration with Product and Engineering was part of my process from early investigation through implementation. I worked closely with the Product Manager and engineers to review customer feedback, investigate problems, discuss technical considerations, and evaluate potential solutions.</p>
+    <p>Design reviews continued as features moved into development rather than ending at handoff. I reviewed implementations with the team, discussed technical constraints, and adjusted designs when necessary while preserving the intent and usability of the experience.</p>
+    <p>For changes such as the Lot Management improvements, new experiences were released behind feature flags so they could be tested with selected users before wider release.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap cs-content">
     <h2>What I Learned</h2>
-    <p><b>Complex products don't always need bigger redesigns.</b> Clearer hierarchy, familiar patterns, and small interaction improvements can remove meaningful friction without disrupting workflows users already understand.</p>
+    <h3>Complex products don't always need bigger redesigns</h3>
+    <p>Working on Requis reinforced that meaningful improvements didn't always require rebuilding an entire experience. In complex enterprise products, changes to terminology, hierarchy, navigation, and interaction patterns could remove meaningful friction — especially when those decisions were grounded in recurring customer problems.</p>
+    <p>The most effective solutions often came from understanding where users were struggling, collaborating closely across teams, and improving familiar workflows without adding unnecessary complexity.</p>
   </div>
 </section>
 

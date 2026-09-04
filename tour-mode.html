@@ -286,6 +286,55 @@
   .cs-diagram-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; }
   @media (max-width:820px){ .cs-diagram-grid{ grid-template-columns:1fr; gap:24px; } }
 
+  /* ---- design-system specimen (sanitized) ---- */
+  .ds-panel{
+    --ds-ink:#10131A; --ds-muted:#5B6472; --ds-line:#E4E7EC; --ds-surface:#FFFFFF; --ds-surface-2:#F5F7FA;
+    --ds-accent:#2E6BFF; --ds-accent-ink:#FFFFFF; --ds-success:#1E9E6A; --ds-warning:#C9821A; --ds-critical:#D14343;
+    --ds-radius-sm:8px;
+    border:1px solid var(--ds-line); border-radius:var(--radius); background:var(--ds-surface);
+    box-shadow:var(--shadow); padding:28px; display:flex; flex-direction:column; gap:30px;
+  }
+  @media (prefers-color-scheme: dark){ .ds-panel{ --ds-ink:#EEF1F6; --ds-muted:#98A2B3; --ds-line:#2A2F3A; --ds-surface:#161A21; --ds-surface-2:#1E2430; --ds-accent:#5B8CFF; } }
+  :root[data-theme="dark"] .ds-panel{ --ds-ink:#EEF1F6; --ds-muted:#98A2B3; --ds-line:#2A2F3A; --ds-surface:#161A21; --ds-surface-2:#1E2430; --ds-accent:#5B8CFF; }
+  :root[data-theme="light"] .ds-panel{ --ds-ink:#10131A; --ds-muted:#5B6472; --ds-line:#E4E7EC; --ds-surface:#FFFFFF; --ds-surface-2:#F5F7FA; --ds-accent:#2E6BFF; }
+  .ds-group{ display:flex; flex-direction:column; gap:16px; }
+  .ds-label{ font-family:var(--body); font-weight:700; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ds-muted); padding-bottom:10px; border-bottom:1px solid var(--ds-line); }
+  .ds-mono{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; color:var(--ds-muted); }
+  .ds-swatches{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  @media (max-width:640px){ .ds-swatches{ grid-template-columns:repeat(2,1fr); } }
+  .ds-swatch{ display:flex; flex-direction:column; gap:8px; }
+  .ds-swatch .sw{ height:50px; border-radius:var(--ds-radius-sm); border:1px solid var(--ds-line); }
+  .ds-swatch b{ font-family:var(--body); font-size:12.5px; color:var(--ds-ink); font-weight:700; }
+  .ds-type{ display:flex; flex-direction:column; }
+  .ds-type-row{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:12px 0; border-bottom:1px dashed var(--ds-line); }
+  .ds-type-row:last-child{ border-bottom:none; }
+  .ds-t-display{ font-family:var(--display); font-weight:800; font-size:30px; letter-spacing:-0.02em; color:var(--ds-ink); }
+  .ds-t-title{ font-family:var(--display); font-weight:700; font-size:22px; color:var(--ds-ink); }
+  .ds-t-heading{ font-family:var(--display); font-weight:700; font-size:16px; color:var(--ds-ink); }
+  .ds-t-body{ font-family:var(--body); font-weight:400; font-size:15px; color:var(--ds-ink); }
+  .ds-t-cap{ font-family:var(--body); font-weight:600; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ds-muted); }
+  .ds-comp-rows{ display:flex; flex-direction:column; gap:22px; }
+  .ds-row{ display:flex; flex-wrap:wrap; align-items:flex-end; gap:12px; }
+  .ds-btn{ font-family:var(--body); font-weight:600; font-size:13.5px; padding:9px 16px; border-radius:var(--ds-radius-sm); border:1px solid transparent; }
+  .ds-btn.primary{ background:var(--ds-accent); color:var(--ds-accent-ink); }
+  .ds-btn.secondary{ background:var(--ds-surface); color:var(--ds-ink); border-color:var(--ds-line); }
+  .ds-btn.ghost{ background:transparent; color:var(--ds-accent); }
+  .ds-btn.disabled{ background:var(--ds-surface-2); color:var(--ds-muted); border-color:var(--ds-line); }
+  .ds-field label{ display:block; font-family:var(--body); font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--ds-muted); margin-bottom:6px; }
+  .ds-field .inp{ font-family:var(--body); font-size:14px; color:var(--ds-ink); background:var(--ds-surface); border:1px solid var(--ds-line); border-radius:var(--ds-radius-sm); padding:10px 12px; min-width:200px; }
+  .ds-seg{ display:inline-flex; background:var(--ds-surface-2); border:1px solid var(--ds-line); border-radius:var(--ds-radius-sm); padding:3px; gap:3px; }
+  .ds-seg span{ font-family:var(--body); font-size:13px; font-weight:600; padding:6px 15px; border-radius:6px; color:var(--ds-muted); }
+  .ds-seg span.on{ background:var(--ds-surface); color:var(--ds-ink); box-shadow:0 1px 2px rgba(0,0,0,0.12); }
+  .ds-pills{ display:flex; flex-wrap:wrap; gap:10px; }
+  .ds-pill{ display:inline-flex; align-items:center; gap:7px; font-family:var(--body); font-size:12.5px; font-weight:600; padding:6px 13px; border-radius:100px; border:1px solid; }
+  .ds-pill .d{ width:7px; height:7px; border-radius:50%; }
+  .ds-pill.private{ background:var(--ds-surface-2); color:var(--ds-muted); border-color:var(--ds-line); }
+  .ds-pill.private .d{ background:var(--ds-muted); }
+  .ds-pill.shared{ background:color-mix(in srgb, var(--ds-accent) 12%, transparent); color:var(--ds-accent); border-color:color-mix(in srgb, var(--ds-accent) 32%, transparent); }
+  .ds-pill.shared .d{ background:var(--ds-accent); }
+  .ds-pill.public{ background:color-mix(in srgb, var(--ds-success) 14%, transparent); color:var(--ds-success); border-color:color-mix(in srgb, var(--ds-success) 34%, transparent); }
+  .ds-pill.public .d{ background:var(--ds-success); }
+
 </style>
 
 <div class="topnav">
@@ -422,6 +471,63 @@
     <p>The goal isn't simply to maintain a component library. It's to create a reliable shared language between design and development.</p>
     <div class="cs-chips">
       <span>Design tokens</span><span>Component vocabulary</span><span>Variants</span><span>Usage patterns</span><span>Cross-platform consistency</span><span>UI principles</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>The System's Building Blocks</h2><p>A sanitized specimen of the shared foundations that keep web and mobile speaking the same language: tokens, type, and components. Illustrative of the system's approach, not the live product UI.</p></div>
+    <div class="ds-panel">
+      <div class="ds-group">
+        <div class="ds-label">Color tokens</div>
+        <div class="ds-swatches">
+          <div class="ds-swatch"><span class="sw" style="background:#FFFFFF"></span><b>surface</b><span class="ds-mono">#FFFFFF</span></div>
+          <div class="ds-swatch"><span class="sw" style="background:#10131A"></span><b>ink</b><span class="ds-mono">#10131A</span></div>
+          <div class="ds-swatch"><span class="sw" style="background:#5B6472"></span><b>muted</b><span class="ds-mono">#5B6472</span></div>
+          <div class="ds-swatch"><span class="sw" style="background:#E4E7EC"></span><b>line</b><span class="ds-mono">#E4E7EC</span></div>
+          <div class="ds-swatch"><span class="sw" style="background:#2E6BFF"></span><b>accent</b><span class="ds-mono">#2E6BFF</span></div>
+          <div class="ds-swatch"><span class="sw" style="background:#1E9E6A"></span><b>success</b><span class="ds-mono">#1E9E6A</span></div>
+          <div class="ds-swatch"><span class="sw" style="background:#C9821A"></span><b>warning</b><span class="ds-mono">#C9821A</span></div>
+          <div class="ds-swatch"><span class="sw" style="background:#D14343"></span><b>critical</b><span class="ds-mono">#D14343</span></div>
+        </div>
+      </div>
+
+      <div class="ds-group">
+        <div class="ds-label">Type scale</div>
+        <div class="ds-type">
+          <div class="ds-type-row"><span class="ds-t-display">Plan the tour</span><span class="ds-mono">Display · 30 / 800</span></div>
+          <div class="ds-type-row"><span class="ds-t-title">Show day</span><span class="ds-mono">Title · 22 / 700</span></div>
+          <div class="ds-type-row"><span class="ds-t-heading">Soundcheck &amp; settlement</span><span class="ds-mono">Heading · 16 / 700</span></div>
+          <div class="ds-type-row"><span class="ds-t-body">Everything in one place, so nothing gets lost on the road.</span><span class="ds-mono">Body · 15 / 400</span></div>
+          <div class="ds-type-row"><span class="ds-t-cap">Load in · 3:00 PM</span><span class="ds-mono">Label · 11 / 600</span></div>
+        </div>
+      </div>
+
+      <div class="ds-group">
+        <div class="ds-label">Components &amp; states</div>
+        <div class="ds-comp-rows">
+          <div class="ds-row">
+            <span class="ds-btn primary">Add show</span>
+            <span class="ds-btn secondary">Advance</span>
+            <span class="ds-btn ghost">Details</span>
+            <span class="ds-btn disabled">Settle</span>
+          </div>
+          <div class="ds-row">
+            <div class="ds-field"><label>Venue</label><div class="inp">The Fillmore</div></div>
+            <div class="ds-seg"><span class="on">Web</span><span>Mobile</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-group">
+        <div class="ds-label">Visibility &amp; status</div>
+        <div class="ds-pills">
+          <span class="ds-pill private"><span class="d"></span>Private</span>
+          <span class="ds-pill shared"><span class="d"></span>Shared</span>
+          <span class="ds-pill public"><span class="d"></span>Public</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>

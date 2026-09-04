@@ -271,6 +271,15 @@
   .cs-chips span{ font-family:var(--body); font-weight:500; font-size:11px; letter-spacing:0.03em; text-transform:uppercase; color:var(--ink-muted); background:var(--surface-2); border:1px solid var(--line); padding:4px 11px; border-radius:100px; }
   .cs-cycle{ font-family:var(--display); font-weight:600; font-size:14px; line-height:1.9; color:var(--ink-muted); border:1px solid var(--line); border-radius:var(--radius-sm); background:var(--surface-2); padding:16px 20px; margin:20px 0 0; }
   .cs-cycle b{ color:var(--accent); }
+  .cyc{ display:flex; flex-wrap:wrap; align-items:stretch; gap:10px; margin:22px 0 0; }
+  .cyc-step{ flex:0 1 auto; display:flex; align-items:center; gap:10px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-sm); padding:11px 14px; box-shadow:var(--shadow); }
+  .cyc-n{ flex-shrink:0; width:24px; height:24px; border-radius:50%; background:var(--surface-2); color:var(--accent); font-family:var(--display); font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); }
+  .cyc-step .txt{ font-family:var(--body); font-weight:600; font-size:13px; color:var(--ink); line-height:1.3; }
+  .cyc-arw{ align-self:center; color:var(--ink-muted); font-size:15px; flex-shrink:0; }
+  .cyc-step.repeat{ background:var(--accent); border-color:var(--accent); }
+  .cyc-step.repeat .cyc-n{ background:rgba(255,255,255,0.22); color:var(--accent-ink); border-color:transparent; }
+  .cyc-step.repeat .txt{ color:var(--accent-ink); }
+  .cyc-cap{ font-family:var(--body); font-size:12.5px; color:var(--ink-muted); margin:12px 0 0; }
   .cs-chal{ display:grid; grid-template-columns:52px 1fr; gap:20px; padding:26px 0; border-bottom:1px solid var(--line); }
   .cs-chal:last-child{ border-bottom:none; }
   @media (max-width:560px){ .cs-chal{ grid-template-columns:1fr; gap:8px; } }
@@ -402,7 +411,22 @@
     <h2>Designing With the People Who Tour</h2>
     <p>Touring musicians aren't just the target audience for the app. They actively inform how we're shaping the product. I work directly with them to understand how they plan tours, prepare for shows, move between venues, manage information, and use technology throughout the day.</p>
     <p>Those conversations help uncover where the product matches their expectations, where it creates friction, and what needs to change. Rather than treating research, design, and development as separate phases, the product continues to evolve through this cycle as we learn more about how it fits into real touring situations.</p>
-    <p class="cs-cycle">Understand real workflows → Identify friction → Refine the journey → Design UX/UI → Review with users → Iterate with development → <b>Repeat</b></p>
+    <div class="cyc" role="img" aria-label="An iterative loop: understand real workflows, identify friction, refine the journey, design UX/UI, review with users, iterate with development, then repeat.">
+      <div class="cyc-step"><span class="cyc-n">1</span><span class="txt">Understand real workflows</span></div>
+      <span class="cyc-arw" aria-hidden="true">→</span>
+      <div class="cyc-step"><span class="cyc-n">2</span><span class="txt">Identify friction</span></div>
+      <span class="cyc-arw" aria-hidden="true">→</span>
+      <div class="cyc-step"><span class="cyc-n">3</span><span class="txt">Refine the journey</span></div>
+      <span class="cyc-arw" aria-hidden="true">→</span>
+      <div class="cyc-step"><span class="cyc-n">4</span><span class="txt">Design UX/UI</span></div>
+      <span class="cyc-arw" aria-hidden="true">→</span>
+      <div class="cyc-step"><span class="cyc-n">5</span><span class="txt">Review with users</span></div>
+      <span class="cyc-arw" aria-hidden="true">→</span>
+      <div class="cyc-step"><span class="cyc-n">6</span><span class="txt">Iterate with development</span></div>
+      <span class="cyc-arw" aria-hidden="true">↻</span>
+      <div class="cyc-step repeat"><span class="cyc-n">↻</span><span class="txt">Repeat</span></div>
+    </div>
+    <p class="cyc-cap">An ongoing loop, not a linear research-to-handoff process.</p>
   </div>
 </section>
 

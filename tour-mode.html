@@ -279,7 +279,10 @@
   .cyc-step.repeat{ background:var(--accent); border-color:var(--accent); }
   .cyc-step.repeat .cyc-n{ background:rgba(255,255,255,0.22); color:var(--accent-ink); border-color:transparent; }
   .cyc-step.repeat .txt{ color:var(--accent-ink); }
-  .cyc-cap{ font-family:var(--body); font-size:12.5px; color:var(--ink-muted); margin:12px 0 0; }
+  .cyc-cap{ font-family:var(--body); font-size:12.5px; color:var(--ink-muted); margin:14px 0 0; }
+  .cyc-return{ position:relative; height:34px; margin:0 18px; border:2px solid color-mix(in srgb, var(--accent) 42%, transparent); border-top:none; border-radius:0 0 22px 22px; }
+  .cyc-return::before{ content:""; position:absolute; left:-6px; top:-8px; width:0; height:0; border:6px solid transparent; border-bottom-color:var(--accent); }
+  .cyc-return-label{ position:absolute; left:50%; bottom:-10px; transform:translateX(-50%); background:var(--bg); padding:0 10px; font-family:var(--body); font-weight:700; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); white-space:nowrap; }
   .cs-chal{ display:grid; grid-template-columns:52px 1fr; gap:20px; padding:26px 0; border-bottom:1px solid var(--line); }
   .cs-chal:last-child{ border-bottom:none; }
   @media (max-width:560px){ .cs-chal{ grid-template-columns:1fr; gap:8px; } }
@@ -423,9 +426,8 @@
       <div class="cyc-step"><span class="cyc-n">5</span><span class="txt">Review with users</span></div>
       <span class="cyc-arw" aria-hidden="true">→</span>
       <div class="cyc-step"><span class="cyc-n">6</span><span class="txt">Iterate with development</span></div>
-      <span class="cyc-arw" aria-hidden="true">↻</span>
-      <div class="cyc-step repeat"><span class="cyc-n">↻</span><span class="txt">Repeat</span></div>
     </div>
+    <div class="cyc-return" aria-hidden="true"><span class="cyc-return-label">↺ repeat</span></div>
     <p class="cyc-cap">An ongoing loop, not a linear research-to-handoff process.</p>
   </div>
 </section>

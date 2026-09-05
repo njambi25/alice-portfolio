@@ -206,7 +206,6 @@
     .banner-caption{ font-size:13.5px; }
   }
 
-
   /* ---- case study page ---- */
   .cs-hero{ padding:48px 0 56px; }
   @media (max-width:720px){ .cs-hero{ padding:32px 0 36px; } }
@@ -316,6 +315,19 @@
   .ctx-item figcaption{ margin-top:16px; }
   .ctx-item figcaption b{ display:block; font-family:var(--display); font-size:14px; font-weight:700; color:var(--ink); }
   .ctx-item figcaption span{ display:block; font-family:var(--body); font-size:13px; line-height:1.55; color:var(--ink-muted); margin-top:4px; max-width:44ch; }
+
+  /* ---- scattered-tools -> one product convergence ---- */
+  .conv{ display:grid; grid-template-columns:1fr auto 1fr; gap:20px; align-items:center; padding:24px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface-2); }
+  @media (max-width:640px){ .conv{ grid-template-columns:1fr; gap:16px; text-align:center; } .conv-arrow{ transform:rotate(90deg); } }
+  .conv-tools{ display:flex; flex-wrap:wrap; gap:8px; }
+  @media (max-width:640px){ .conv-tools{ justify-content:center; } }
+  .conv-chip{ font-family:var(--body); font-size:12.5px; font-weight:600; color:var(--ink-muted); background:var(--surface); border:1px solid var(--line); border-radius:100px; padding:7px 13px; }
+  .conv-arrow{ font-size:24px; color:var(--accent); text-align:center; font-weight:700; }
+  .conv-one{ font-family:var(--display); font-weight:800; font-size:16px; color:var(--accent-ink); background:var(--accent); border-radius:var(--radius-sm); padding:18px 20px; text-align:center; box-shadow:var(--shadow); }
+
+  /* ---- principle card icons ---- */
+  .tm-picon{ display:block; width:24px; height:24px; color:var(--accent); margin-bottom:12px; }
+  .tm-picon svg{ width:100%; height:100%; display:block; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
   .cs-chal{ display:grid; grid-template-columns:52px 1fr; gap:20px; padding:26px 0; border-bottom:1px solid var(--line); }
   .cs-chal:last-child{ border-bottom:none; }
   @media (max-width:560px){ .cs-chal{ grid-template-columns:1fr; gap:8px; } }
@@ -406,8 +418,6 @@
   </nav>
 </div>
 
-
-
 <div id="top"></div>
 
 <section class="cs-hero">
@@ -439,6 +449,19 @@
     <p>Touring involves much more than getting on stage. Musicians and the people working with them have to keep track of shows, venues, schedules, contacts, travel details, documents, and constantly changing information, often while moving from one city to another.</p>
     <p>The app began with the idea of bringing that information into one place instead of relying on a mix of spreadsheets, email, messages, and disconnected tools.</p>
     <p>I joined during ideation, while the team was still defining what the product should become. We established an initial functional skeleton first, giving us something tangible to evaluate and evolve. From there, my role was to turn that foundation into an experience built around how touring musicians actually work.</p>
+  </div>
+  <div class="wrap">
+    <div class="conv">
+      <div class="conv-tools">
+        <span class="conv-chip">Spreadsheets</span>
+        <span class="conv-chip">Email</span>
+        <span class="conv-chip">Group texts</span>
+        <span class="conv-chip">Docs</span>
+        <span class="conv-chip">Calendars</span>
+      </div>
+      <div class="conv-arrow" aria-hidden="true">→</div>
+      <div class="conv-one">One place for the whole tour</div>
+    </div>
   </div>
 </section>
 
@@ -491,8 +514,7 @@
       <div class="cs-chal-num">03</div>
       <div class="cs-chal-body">
         <h3>Keeping an evolving product consistent</h3>
-        <p>As the product grew, we began establishing a shared design system across web and mobile. Early on we hit a problem: changes to the emerging design system weren't always reflected consistently across the design files and the implemented product.</p>
-        <p>This created the risk of designing against outdated patterns and let the design system and product drift apart. It became clear we needed a more reliable connection between what was designed and what actually shipped.</p>
+        <p>As the product grew across web and mobile, keeping the experience consistent between the two surfaces got harder. I leaned on familiar layouts, components, and interaction patterns so the product felt like one thing, and so users wouldn't have to relearn it when moving between devices.</p>
       </div>
     </div>
   </div>
@@ -547,30 +569,19 @@
   <div class="wrap">
     <div class="section-head"><h2>Design Principles That Emerged</h2><p>The shared reference that keeps a two-client, multi-audience product coherent.</p></div>
     <div class="tm-principles">
-      <div class="tm-pcard"><h3>Design for where the screen is used</h3><p>Planning a tour at a desk and running a show from a phone are different contexts. Web supports deeper planning and denser information; mobile prioritizes immediacy, hierarchy, and quick access. They share a system without forcing identical interfaces.</p></div>
-      <div class="tm-pcard"><h3>Calm over loud</h3><p>Touring already involves a lot of moving parts. Hierarchy, spacing, restrained color, and progressive disclosure help information-dense workflows feel manageable rather than like an enterprise admin tool.</p></div>
-      <div class="tm-pcard"><h3>Make visibility unmistakable</h3><p>Tour information has different audiences. When something is private, shared, or public, the interface makes that clear so users understand who can see what they're working with.</p></div>
-      <div class="tm-pcard"><h3>Make trust boundaries visible</h3><p>When actions touch sensitive information or external systems, the interface is explicit about what the app is, and isn't, doing. It shouldn't imply a permission or level of automation it can't actually provide.</p></div>
-      <div class="tm-pcard"><h3>One product, two clients</h3><p>Web and mobile share the same product language, component vocabulary, and foundational decisions. Consistency doesn't mean identical. Users shouldn't have to relearn the product when moving between devices.</p></div>
-      <div class="tm-pcard"><h3>Not-enterprise</h3><p>The app handles complex logistics, but it shouldn't feel like software imposed by an organization. It should feel like a tool a touring musician would actually choose to use.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap cs-content">
-    <h2>Building a System That Could Keep Up</h2>
-    <p>The synchronization problems we hit while establishing the design system changed how I approach design and implementation. Rather than letting Figma and the product become separate interpretations of the same system, we moved toward a workflow grounded more closely in what actually ships.</p>
-    <p>The goal isn't simply to maintain a component library. It's to create a reliable shared language between design and development.</p>
-    <div class="cs-chips">
-      <span>Design tokens</span><span>Component vocabulary</span><span>Variants</span><span>Usage patterns</span><span>Cross-platform consistency</span><span>UI principles</span>
+      <div class="tm-pcard"><span class="tm-picon"><svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="13" height="10" rx="1.5"/><path d="M5 17.5h10"/><rect x="17" y="8.5" width="4.5" height="9.5" rx="1.2"/></svg></span><h3>Design for where the screen is used</h3><p>Planning a tour at a desk and running a show from a phone are different contexts. Web supports deeper planning and denser information; mobile prioritizes immediacy, hierarchy, and quick access. They share a system without forcing identical interfaces.</p></div>
+      <div class="tm-pcard"><span class="tm-picon"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h11"/><path d="M4 17h6"/></svg></span><h3>Calm over loud</h3><p>Touring already involves a lot of moving parts. Hierarchy, spacing, restrained color, and progressive disclosure help information-dense workflows feel manageable rather than like an enterprise admin tool.</p></div>
+      <div class="tm-pcard"><span class="tm-picon"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-6.5 10-6.5 10 6.5 10 6.5-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg></span><h3>Make visibility unmistakable</h3><p>Tour information has different audiences. When something is private, shared, or public, the interface makes that clear so users understand who can see what they're working with.</p></div>
+      <div class="tm-pcard"><span class="tm-picon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V6z"/></svg></span><h3>Make trust boundaries visible</h3><p>When actions touch sensitive information or external systems, the interface is explicit about what the app is, and isn't, doing. It shouldn't imply a permission or level of automation it can't actually provide.</p></div>
+      <div class="tm-pcard"><span class="tm-picon"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="12" height="12" rx="2.2"/><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/></svg></span><h3>One product, two clients</h3><p>Web and mobile share the same product language, component vocabulary, and foundational decisions. Consistency doesn't mean identical. Users shouldn't have to relearn the product when moving between devices.</p></div>
+      <div class="tm-pcard"><span class="tm-picon"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17l-1.9-5.1L4.5 10l5.6-1.4z"/></svg></span><h3>Not-enterprise</h3><p>The app handles complex logistics, but it shouldn't feel like software imposed by an organization. It should feel like a tool a touring musician would actually choose to use.</p></div>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head"><h2>The System's Building Blocks</h2><p>A sanitized specimen of the shared foundations that keep web and mobile speaking the same language: tokens, type, and components. Illustrative of the system's approach, not the live product UI.</p></div>
+    <div class="section-head"><h2>UI Building Blocks</h2><p>A sanitized look at the kind of UI foundations I design with: color and type choices, component states, and clear visibility levels. Illustrative, not the live product UI.</p></div>
     <div class="ds-panel">
       <div class="ds-group">
         <div class="ds-label">Color tokens</div>
@@ -626,26 +637,6 @@
 </section>
 
 <section class="section">
-  <div class="wrap">
-    <div class="section-head"><h2>Closing the Gap Between Design and Code</h2></div>
-    <div class="cs-diagram-grid">
-      <div class="cs-content">
-        <p>The product's components are token-driven and represented in a live code catalog. I mirror that system into Figma using <b>Tokens Studio</b> for design variables and <b>html.to.design</b> to bring real components into the design environment as editable references.</p>
-        <p>This lets me design with the same names, values, and patterns used in implementation, instead of recreating an approximation of the product in Figma.</p>
-      </div>
-      <div class="tmr-loop">
-        <div class="tmr-node">Code catalog<span>real components + tokens</span></div>
-        <div class="tmr-arrow">↓ &nbsp; html.to.design · Tokens Studio</div>
-        <div class="tmr-node accent">Figma<span>production-aligned tokens + components</span></div>
-        <div class="tmr-arrow">↓ &nbsp; token edits + variants</div>
-        <div class="tmr-node">Ships to product</div>
-        <div class="tmr-cap">A single source of truth, so design and code can't drift.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
   <div class="wrap cs-content">
     <h2>Documentation That Evolves With the Product</h2>
     <p>The same principle extends to documentation. Instead of relying on static walkthroughs that go stale as the interface changes, our product manager auto-records the real product flows against the live application, so the documentation reflects what actually ships.</p>
@@ -674,7 +665,6 @@
 <section class="cs-cta">
   <div class="wrap"><a href="index.html#work">← Back to all projects</a></div>
 </section>
-
 
 <section class="footer" id="contact">
   <div class="wrap">

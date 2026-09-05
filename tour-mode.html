@@ -283,6 +283,39 @@
   .cyc-return{ position:relative; height:34px; margin:0 18px; border:2px solid color-mix(in srgb, var(--accent) 42%, transparent); border-top:none; border-radius:0 0 22px 22px; }
   .cyc-return::before{ content:""; position:absolute; left:-6px; top:-8px; width:0; height:0; border:6px solid transparent; border-bottom-color:var(--accent); }
   .cyc-return-label{ position:absolute; left:50%; bottom:-10px; transform:translateX(-50%); background:var(--bg); padding:0 10px; font-family:var(--body); font-weight:700; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); white-space:nowrap; }
+
+  /* ---- two-contexts (web vs mobile) wireframe visual ---- */
+  .ctx{ display:grid; grid-template-columns:1.6fr 1fr; gap:32px; align-items:start; }
+  @media (max-width:640px){ .ctx{ grid-template-columns:1fr; gap:36px; justify-items:center; } }
+  .ctx-item{ margin:0; width:100%; }
+  .ctx .wf{ display:block; background:var(--surface-2); border-radius:4px; height:10px; }
+  .ctx-web{ border:1px solid var(--line); border-radius:12px; background:var(--surface); box-shadow:var(--shadow); overflow:hidden; }
+  .ctx-bar{ display:flex; gap:6px; align-items:center; padding:10px 12px; background:var(--surface-2); border-bottom:1px solid var(--line); }
+  .ctx-bar span{ width:9px; height:9px; border-radius:50%; background:var(--line); }
+  .ctx-web-body{ display:grid; grid-template-columns:78px 1fr; gap:14px; padding:16px; }
+  .ctx-side{ display:flex; flex-direction:column; gap:9px; }
+  .ctx-side .wf:first-child{ background:color-mix(in srgb, var(--accent) 32%, var(--surface-2)); }
+  .ctx-main{ display:flex; flex-direction:column; gap:12px; }
+  .ctx .wf-lg{ height:24px; width:58%; }
+  .ctx-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .ctx-grid .wf{ height:42px; }
+  .ctx-rows{ display:flex; flex-direction:column; gap:8px; }
+  .ctx-rows .wf{ height:11px; }
+  .ctx-rows .wf:nth-child(2){ width:85%; }
+  .ctx-rows .wf:nth-child(3){ width:70%; }
+  .ctx-mob{ width:188px; margin:0 auto; border:1px solid var(--line); border-radius:26px; background:var(--surface); box-shadow:var(--shadow); overflow:hidden; }
+  .ctx-notch{ position:relative; height:22px; background:var(--surface-2); border-bottom:1px solid var(--line); }
+  .ctx-notch::after{ content:""; position:absolute; top:8px; left:50%; transform:translateX(-50%); width:46px; height:6px; border-radius:3px; background:var(--line); }
+  .ctx-mob-body{ display:flex; flex-direction:column; gap:12px; padding:16px; }
+  .ctx .wf-title{ height:19px; width:72%; }
+  .ctx-card{ background:var(--surface-2); border:1px solid var(--line); border-radius:10px; padding:12px; display:flex; flex-direction:column; gap:8px; }
+  .ctx-card .wf{ background:var(--line); }
+  .ctx-card .wf:first-child{ width:82%; height:13px; }
+  .ctx-card .wf:last-child{ width:52%; }
+  .ctx-cta{ height:34px; border-radius:8px; background:var(--accent); margin-top:2px; }
+  .ctx-item figcaption{ margin-top:16px; }
+  .ctx-item figcaption b{ display:block; font-family:var(--display); font-size:14px; font-weight:700; color:var(--ink); }
+  .ctx-item figcaption span{ display:block; font-family:var(--body); font-size:13px; line-height:1.55; color:var(--ink-muted); margin-top:4px; max-width:44ch; }
   .cs-chal{ display:grid; grid-template-columns:52px 1fr; gap:20px; padding:26px 0; border-bottom:1px solid var(--line); }
   .cs-chal:last-child{ border-bottom:none; }
   @media (max-width:560px){ .cs-chal{ grid-template-columns:1fr; gap:8px; } }
@@ -461,6 +494,40 @@
         <p>As the product grew, we began establishing a shared design system across web and mobile. Early on we hit a problem: changes to the emerging design system weren't always reflected consistently across the design files and the implemented product.</p>
         <p>This created the risk of designing against outdated patterns and let the design system and product drift apart. It became clear we needed a more reliable connection between what was designed and what actually shipped.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>Two Contexts, One Product</h2><p>The same product language, designed for where each screen is actually used: planning at a desk on web, and quick access in the moment on mobile.</p></div>
+    <div class="ctx">
+      <figure class="ctx-item">
+        <div class="ctx-web" aria-hidden="true">
+          <div class="ctx-bar"><span></span><span></span><span></span></div>
+          <div class="ctx-web-body">
+            <div class="ctx-side"><span class="wf"></span><span class="wf"></span><span class="wf"></span><span class="wf"></span><span class="wf"></span></div>
+            <div class="ctx-main">
+              <span class="wf wf-lg"></span>
+              <div class="ctx-grid"><span class="wf"></span><span class="wf"></span><span class="wf"></span><span class="wf"></span><span class="wf"></span><span class="wf"></span></div>
+              <div class="ctx-rows"><span class="wf"></span><span class="wf"></span><span class="wf"></span></div>
+            </div>
+          </div>
+        </div>
+        <figcaption><b>Web · planning</b><span>Room and time to plan: denser information, tours and schedules and details at a glance.</span></figcaption>
+      </figure>
+      <figure class="ctx-item">
+        <div class="ctx-mob" aria-hidden="true">
+          <div class="ctx-notch"></div>
+          <div class="ctx-mob-body">
+            <span class="wf wf-title"></span>
+            <div class="ctx-card"><span class="wf"></span><span class="wf"></span></div>
+            <div class="ctx-rows"><span class="wf"></span><span class="wf"></span></div>
+            <div class="ctx-cta"></div>
+          </div>
+        </div>
+        <figcaption><b>Mobile · in the moment</b><span>Immediacy and hierarchy: the one thing you need, fast, at the venue.</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>

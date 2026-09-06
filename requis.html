@@ -325,6 +325,17 @@
   :root[data-theme="dark"] .theme-toggle .ic-moon{ display:none; }
   :root[data-theme="light"] .theme-toggle .ic-sun{ display:none; }
   :root[data-theme="light"] .theme-toggle .ic-moon{ display:block; }
+
+  /* ---- requis: problem-identification pipeline ---- */
+  .rq-flow{ display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; gap:12px; align-items:stretch; margin:24px 0 0; }
+  @media (max-width:820px){ .rq-flow{ grid-template-columns:1fr; gap:12px; } .rq-flow-arw{ transform:rotate(90deg); justify-self:center; } }
+  .rq-step{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; display:flex; flex-direction:column; gap:8px; }
+  .rq-step-ic{ display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:12px; background:var(--accent); color:var(--accent-ink); margin-bottom:4px; box-shadow:0 4px 12px color-mix(in srgb, var(--accent) 28%, transparent); }
+  .rq-step-ic svg{ width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+  .rq-step b{ font-family:var(--display); font-size:14px; font-weight:700; color:var(--ink); }
+  .rq-step span{ font-family:var(--body); font-size:12.5px; line-height:1.5; color:var(--ink-muted); }
+  .rq-flow-arw{ align-self:center; color:var(--accent); font-size:16px; font-weight:700; }
+  .rq-after{ margin-top:34px; }
 </style>
 
 <div class="topnav">
@@ -391,6 +402,33 @@
       <p>I joined feedback sessions with our customer-facing team, Product, and Engineering, where we reviewed issues customers were repeatedly asking for help with. When similar questions appeared across multiple support requests, we treated them as a signal that something in the experience might not be clear enough.</p>
       <p>After these sessions, our product team walked through the existing experience using the customer feedback as context to understand where users might be getting stuck.</p>
       <p>I then explored the relevant user journeys in more depth, looking for confusing interactions, unclear navigation, and places where the interface didn't match what a user might reasonably expect.</p>
+    </div>
+    <div class="rq-flow" role="img" aria-label="How the problem was identified: recurring support tickets, then cross-team feedback sessions, then walking the existing flow, then mapping the user journeys.">
+      <div class="rq-step">
+        <span class="rq-step-ic"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v10H9l-4 3v-3H4z"/><circle cx="9" cy="10.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="12.5" cy="10.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="16" cy="10.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+        <b>Recurring support tickets</b>
+        <span>The same questions kept coming up through support.</span>
+      </div>
+      <span class="rq-flow-arw" aria-hidden="true">→</span>
+      <div class="rq-step">
+        <span class="rq-step-ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16.5 6.2a3 3 0 0 1 0 5.6"/><path d="M18.5 19a5.2 5.2 0 0 0-3-4.7"/></svg></span>
+        <b>Cross-team feedback sessions</b>
+        <span>Customer-facing, Product, and Engineering reviewed the patterns together.</span>
+      </div>
+      <span class="rq-flow-arw" aria-hidden="true">→</span>
+      <div class="rq-step">
+        <span class="rq-step-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.3-4.3"/></svg></span>
+        <b>Walk the existing flow</b>
+        <span>We stepped through the current experience to see where users got stuck.</span>
+      </div>
+      <span class="rq-flow-arw" aria-hidden="true">→</span>
+      <div class="rq-step">
+        <span class="rq-step-ic"><svg viewBox="0 0 24 24"><path d="M9 4L4 6v14l5-2 6 2 5-2V4l-5 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg></span>
+        <b>Map the user journeys</b>
+        <span>I explored the journeys in depth for confusing or unclear moments.</span>
+      </div>
+    </div>
+    <div class="cs-content rq-after">
       <h2>From Feedback to Design</h2>
       <p>I brought my findings back to Product and front-end Engineering so we could review the problems together and discuss technical considerations.</p>
       <p>From there, I researched comparable platforms and relevant UX patterns to understand how similar problems were being approached elsewhere. Those findings helped inform my initial design explorations.</p>

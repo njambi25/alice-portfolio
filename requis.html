@@ -257,6 +257,40 @@
   .cs-content p{ font-family:var(--body); font-size:16px; line-height:1.75; color:var(--ink-muted); margin-bottom:16px; }
   .cs-content p:last-child{ margin-bottom:0; }
 
+  /* Case-study side-nav layout */
+  .cs-layout{ max-width:1160px; margin:6px auto 0; padding:0 32px; display:grid; grid-template-columns:190px minmax(0,1fr); gap:60px; align-items:start; }
+  .cs-sidenav{ position:sticky; top:84px; align-self:start; }
+  .cs-sidenav-inner{ display:flex; flex-direction:column; gap:1px; border-left:1px solid var(--line); }
+  .cs-sidenav-label{ font-family:var(--body); font-weight:600; font-size:11px; letter-spacing:0.09em; text-transform:uppercase; color:var(--ink-muted); opacity:0.75; padding:0 0 12px 16px; }
+  .cs-sidenav-link{ font-family:var(--body); font-size:13.5px; line-height:1.3; color:var(--ink-muted); text-decoration:none; padding:7px 0 7px 16px; margin-left:-1px; border-left:2px solid transparent; transition:color .15s ease, border-color .15s ease; }
+  .cs-sidenav-link:hover{ color:var(--ink); }
+  .cs-sidenav-link.active{ color:var(--accent); border-left-color:var(--accent); font-weight:600; }
+
+  .cs-doc{ min-width:0; }
+  .cs-doc .section{ scroll-margin-top:92px; }
+  .cs-doc > .section:first-child{ border-top:0; padding-top:2px; }
+  /* neutralize the centered .wrap inside the doc column */
+  .cs-doc .wrap{ max-width:none; margin:0; padding:0; }
+  .cs-doc .wrap.cs-content{ max-width:680px; }
+  .cs-doc .wrap.cs-content > *{ max-width:none; }
+  /* reading measure for prose, left-aligned to the doc column */
+  .cs-doc .cs-content{ max-width:680px; }
+  .cs-doc .section-head{ max-width:680px; }
+  .cs-doc .cs-area > p{ max-width:680px; }
+  .cs-doc .cs-change-body > p{ max-width:680px; }
+  .cs-doc .cs-resp-lead{ max-width:680px; }
+
+  @media (max-width:940px){
+    .cs-layout{ grid-template-columns:1fr; gap:0; }
+    .cs-sidenav{ display:none; }
+    .cs-doc > .section:first-child{ border-top:1px solid var(--line); padding-top:44px; }
+    .cs-doc .cs-content{ max-width:740px; }
+    .cs-doc .section-head{ max-width:740px; }
+  }
+  @media (max-width:720px){
+    .cs-layout{ padding:0 20px; }
+  }
+
   .cs-chips{ display:flex; flex-wrap:wrap; gap:8px; }
   .cs-chip{ font-family:var(--body); font-weight:500; font-size:12.5px; color:var(--ink-muted); background:var(--surface-2); border:1px solid var(--line); padding:6px 13px; border-radius:100px; }
 
@@ -418,7 +452,23 @@
   </div>
 </section>
 
-<section class="section">
+<div class="cs-layout">
+  <aside class="cs-sidenav" aria-label="On this page">
+    <nav class="cs-sidenav-inner">
+      <span class="cs-sidenav-label">On this page</span>
+      <a class="cs-sidenav-link" href="#overview">Overview</a>
+      <a class="cs-sidenav-link" href="#problem">The Problem</a>
+      <a class="cs-sidenav-link" href="#changes">What I Changed</a>
+      <a class="cs-sidenav-link" href="#validation">Validation</a>
+      <a class="cs-sidenav-link" href="#platform">Across the Platform</a>
+      <a class="cs-sidenav-link" href="#consistency">Consistency</a>
+      <a class="cs-sidenav-link" href="#collaboration">Collaboration</a>
+      <a class="cs-sidenav-link" href="#learnings">Learnings</a>
+    </nav>
+  </aside>
+  <div class="cs-doc">
+
+<section class="section" id="overview">
   <div class="wrap cs-content">
     <h2>Overview</h2>
     <p>I worked across Marketplace, Procurement, CRM, Supplier Storefront, Lot Management, and other areas of the Requis platform.</p>
@@ -427,7 +477,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="problem">
   <div class="wrap">
     <div class="cs-chapter">A Closer Look: Lot Management</div>
     <div class="cs-content">
@@ -517,7 +567,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="changes">
   <div class="wrap">
     <div class="section-head"><h2>What I Changed</h2></div>
     <div class="cs-change">
@@ -577,7 +627,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="validation">
   <div class="wrap cs-content">
     <h2>Validation &amp; Outcome</h2>
     <p>The redesigned experience was released behind a feature flag and tested with selected users through our customer-facing team.</p>
@@ -586,7 +636,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="platform">
   <div class="wrap">
     <div class="section-head"><h2>Designing Across the Platform</h2><p>The same approach extended beyond Lot Management to other areas of Requis.</p></div>
     <div class="cs-plat">
@@ -609,7 +659,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="consistency">
   <div class="wrap">
     <div class="section-head"><h2>Designing for Consistency</h2><p>Working across multiple areas of a large platform meant thinking beyond individual screens. I used familiar layouts, interaction patterns, components, and visual hierarchy to create experiences that felt connected as users moved between different parts of the product.</p></div>
     <div class="cs-issues">
@@ -626,7 +676,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="collaboration">
   <div class="wrap cs-content">
     <h2>Working With Product &amp; Engineering</h2>
     <p>Collaboration with Product and Engineering was part of my process from early investigation through implementation. I worked closely with the Product Manager and engineers to review customer feedback, investigate problems, discuss technical considerations, and evaluate potential solutions.</p>
@@ -635,7 +685,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="learnings">
   <div class="wrap cs-content">
     <h2>What I Learned</h2>
     <h3>Complex products don't always need bigger redesigns</h3>
@@ -643,6 +693,9 @@
     <p>The most effective solutions often came from understanding where users were struggling, collaborating closely across teams, and improving familiar workflows without adding unnecessary complexity.</p>
   </div>
 </section>
+
+  </div>
+</div>
 
 <section class="cs-cta">
   <div class="wrap cs-cta-row"><a href="index.html#work">← Back to all projects</a><a href="sincera.html">Next project: Sincera Studio →</a></div>
@@ -745,4 +798,26 @@
 })();
 
 (function(){var e=atob("YWxpY2VzYW5kZXJzMTI1QGdtYWlsLmNvbQ==");document.querySelectorAll("a[data-email]").forEach(function(a){var s=a.getAttribute("data-subject");a.setAttribute("href","mailto:"+e+(s?"?subject="+s:""));});})();
+
+/* Case-study side-nav scrollspy */
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.cs-sidenav-link'));
+  if(!links.length) return;
+  var items = links.map(function(l){ return { link:l, sec:document.getElementById(l.getAttribute('href').slice(1)) }; }).filter(function(x){ return x.sec; });
+  if(!items.length) return;
+  function update(){
+    var line = 150, current = items[0];
+    for(var i=0;i<items.length;i++){
+      if(items[i].sec.getBoundingClientRect().top - line <= 0) current = items[i]; else break;
+    }
+    links.forEach(function(l){ l.classList.remove('active'); });
+    current.link.classList.add('active');
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(function(){ update(); ticking = false; }); }
+  }, { passive:true });
+  window.addEventListener('resize', update, { passive:true });
+  update();
+})();
 </script>

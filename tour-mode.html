@@ -254,6 +254,35 @@
   .cs-content p{ font-family:var(--body); font-size:16px; line-height:1.75; color:var(--ink-muted); margin-bottom:16px; }
   .cs-content p:last-child{ margin-bottom:0; }
 
+  /* Case-study side-nav layout */
+  .cs-layout{ max-width:1200px; margin:6px auto 0; padding:0 32px; display:grid; grid-template-columns:168px minmax(0,1fr); gap:40px; align-items:start; }
+  .cs-sidenav{ position:sticky; top:84px; align-self:start; }
+  .cs-sidenav-inner{ display:flex; flex-direction:column; gap:1px; border-left:1px solid var(--line); }
+  .cs-sidenav-label{ font-family:var(--body); font-weight:600; font-size:11px; letter-spacing:0.09em; text-transform:uppercase; color:var(--ink-muted); opacity:0.75; padding:0 0 12px 16px; }
+  .cs-sidenav-link{ font-family:var(--body); font-size:13.5px; line-height:1.3; color:var(--ink-muted); text-decoration:none; padding:7px 0 7px 16px; margin-left:-1px; border-left:2px solid transparent; transition:color .15s ease, border-color .15s ease; }
+  .cs-sidenav-link:hover{ color:var(--ink); }
+  .cs-sidenav-link.active{ color:var(--accent); border-left-color:var(--accent); font-weight:600; }
+
+  .cs-doc{ min-width:0; }
+  .cs-doc .section{ scroll-margin-top:92px; }
+  .cs-doc > .section:first-child{ border-top:0; padding-top:2px; }
+  .cs-doc .wrap{ max-width:none; margin:0; padding:0; }
+  .cs-doc .wrap.cs-content{ max-width:680px; }
+  .cs-doc .wrap.cs-content > *{ max-width:none; }
+  .cs-doc .cs-content{ max-width:680px; }
+  .cs-doc .section-head{ max-width:680px; }
+
+  @media (max-width:940px){
+    .cs-layout{ grid-template-columns:1fr; gap:0; }
+    .cs-sidenav{ display:none; }
+    .cs-doc > .section:first-child{ border-top:1px solid var(--line); padding-top:44px; }
+    .cs-doc .cs-content{ max-width:740px; }
+    .cs-doc .section-head{ max-width:740px; }
+  }
+  @media (max-width:720px){
+    .cs-layout{ padding:0 20px; }
+  }
+
   .cs-chips{ display:flex; flex-wrap:wrap; gap:8px; }
   .cs-chip{ font-family:var(--body); font-weight:500; font-size:12.5px; color:var(--ink-muted); background:var(--surface-2); border:1px solid var(--line); padding:6px 13px; border-radius:100px; }
 
@@ -497,13 +526,30 @@
   </div>
 </section>
 
+<div class="cs-layout">
+  <aside class="cs-sidenav" aria-label="On this page">
+    <nav class="cs-sidenav-inner">
+      <span class="cs-sidenav-label">On this page</span>
+      <a class="cs-sidenav-link" href="#context">Context</a>
+      <a class="cs-sidenav-link" href="#research">Research</a>
+      <a class="cs-sidenav-link" href="#challenge">The Challenge</a>
+      <a class="cs-sidenav-link" href="#two-contexts">Two Contexts</a>
+      <a class="cs-sidenav-link" href="#decisions">Product Decisions</a>
+      <a class="cs-sidenav-link" href="#principles">Principles</a>
+      <a class="cs-sidenav-link" href="#building-blocks">UI Building Blocks</a>
+      <a class="cs-sidenav-link" href="#documentation">Documentation</a>
+      <a class="cs-sidenav-link" href="#learnings">Learnings</a>
+    </nav>
+  </aside>
+  <div class="cs-doc">
+
 <section class="section">
   <div class="wrap cs-content">
     <div class="cs-note"><p><b>Stealth project.</b> The app is pre-launch, so I can't publicly share live product screens or detailed workflows. This case study focuses on the product-design process, decisions, principles, and systems I can discuss publicly.</p></div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="context">
   <div class="wrap cs-content">
     <h2>Context</h2>
     <p>Touring involves much more than getting on stage. Musicians and the people working with them have to keep track of shows, venues, schedules, contacts, travel details, documents, and constantly changing information, often while moving from one city to another.</p>
@@ -525,7 +571,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="research">
   <div class="wrap cs-content">
     <h2>Designing With the People Who Tour</h2>
     <p>Touring musicians aren't just the target audience for the app. They actively inform how we're shaping the product. I work directly with them to understand how they plan tours, prepare for shows, move between venues, manage information, and use technology throughout the day.</p>
@@ -548,7 +594,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="challenge">
   <div class="wrap">
     <div class="section-head"><h2>The Product Design Challenge</h2><p>The challenge isn't fitting a lot of tour information into an interface. It's deciding what someone needs, when they need it, and how quickly they need to get to it. A musician planning dates from a laptop has very different needs from the same musician backstage checking their phone before soundcheck.</p></div>
     <div class="cs-chal">
@@ -580,7 +626,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="two-contexts">
   <div class="wrap">
     <div class="section-head"><h2>Two Contexts, One Product</h2><p>The same product language, designed for where each screen is actually used: planning at a desk on web, and quick access in the moment on mobile.</p></div>
     <div class="ctx">
@@ -614,7 +660,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="decisions">
   <div class="wrap cs-content">
     <h2>From User Insight to Product Decisions</h2>
     <p>Feedback from touring musicians isn't treated as a final approval step. It feeds directly into the next design iteration. I use those conversations to understand where expectations and the product diverge: the order of information, the visibility of an action, the amount shown at a particular moment, or how a workflow moves from one step to the next.</p>
@@ -625,7 +671,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="principles">
   <div class="wrap">
     <div class="section-head"><h2>Design Principles That Emerged</h2><p>The shared reference that keeps a two-client, multi-audience product coherent.</p></div>
     <div class="tm-principles">
@@ -639,7 +685,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="building-blocks">
   <div class="wrap">
     <div class="section-head"><h2>UI Building Blocks</h2><p>A sanitized look at the kind of UI foundations I design with: color and type choices, component states, and clear visibility levels. Illustrative, not the live product UI.</p></div>
     <div class="ds-panel">
@@ -696,7 +742,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="documentation">
   <div class="wrap cs-content">
     <h2>Documentation That Evolves With the Product</h2>
     <p>The same principle extends to documentation. Instead of relying on static walkthroughs that go stale as the interface changes, our product manager auto-records the real product flows against the live application, so the documentation reflects what actually ships.</p>
@@ -725,7 +771,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="learnings">
   <div class="wrap">
     <div class="section-head"><h2>What I Learned</h2></div>
     <div class="tk">
@@ -756,6 +802,9 @@
     <p><a class="tm-ds-link" data-email data-subject="Tour%20Management%20App%20walkthrough%20request" href="#">Request a walkthrough →</a></p>
   </div>
 </section>
+
+  </div>
+</div>
 
 <section class="cs-cta">
   <div class="wrap cs-cta-row"><a href="index.html#work">← Back to all projects</a><a href="requis.html">Next project: Requis →</a></div>
@@ -858,4 +907,26 @@
 })();
 
 (function(){var e=atob("YWxpY2VzYW5kZXJzMTI1QGdtYWlsLmNvbQ==");document.querySelectorAll("a[data-email]").forEach(function(a){var s=a.getAttribute("data-subject");a.setAttribute("href","mailto:"+e+(s?"?subject="+s:""));});})();
+
+/* Case-study side-nav scrollspy */
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.cs-sidenav-link'));
+  if(!links.length) return;
+  var items = links.map(function(l){ return { link:l, sec:document.getElementById(l.getAttribute('href').slice(1)) }; }).filter(function(x){ return x.sec; });
+  if(!items.length) return;
+  function update(){
+    var line = 150, current = items[0];
+    for(var i=0;i<items.length;i++){
+      if(items[i].sec.getBoundingClientRect().top - line <= 0) current = items[i]; else break;
+    }
+    links.forEach(function(l){ l.classList.remove('active'); });
+    current.link.classList.add('active');
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(function(){ update(); ticking = false; }); }
+  }, { passive:true });
+  window.addEventListener('resize', update, { passive:true });
+  update();
+})();
 </script>

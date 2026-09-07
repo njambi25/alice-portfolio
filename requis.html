@@ -258,7 +258,7 @@
   .cs-content p:last-child{ margin-bottom:0; }
 
   /* Case-study side-nav layout */
-  .cs-layout{ max-width:1160px; margin:6px auto 0; padding:0 32px; display:grid; grid-template-columns:190px minmax(0,1fr); gap:60px; align-items:start; }
+  .cs-layout{ max-width:1200px; margin:6px auto 0; padding:0 32px; display:grid; grid-template-columns:168px minmax(0,1fr); gap:40px; align-items:start; }
   .cs-sidenav{ position:sticky; top:84px; align-self:start; }
   .cs-sidenav-inner{ display:flex; flex-direction:column; gap:1px; border-left:1px solid var(--line); }
   .cs-sidenav-label{ font-family:var(--body); font-weight:600; font-size:11px; letter-spacing:0.09em; text-transform:uppercase; color:var(--ink-muted); opacity:0.75; padding:0 0 12px 16px; }
@@ -281,7 +281,7 @@
   .cs-doc .cs-resp-lead{ max-width:680px; }
 
   @media (max-width:940px){
-    .cs-layout{ grid-template-columns:1fr; gap:0; }
+    .cs-layout{ grid-template-columns:1fr; gap:0; --bleed:0px; }
     .cs-sidenav{ display:none; }
     .cs-doc > .section:first-child{ border-top:1px solid var(--line); padding-top:44px; }
     .cs-doc .cs-content{ max-width:740px; }
@@ -315,7 +315,9 @@
   .cs-ph.small-ph{ aspect-ratio:4/3; }
   .cs-content + .wrap .cs-ph, .cs-content .cs-ph{ margin-top:24px; }
   .cs-ba{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
-  @media (max-width:560px){ .cs-ba{ grid-template-columns:1fr; } }
+  /* let the before/after span the full row width, into the empty space under the number */
+  .cs-change-body .cs-ba{ margin-left:-84px; width:calc(100% + 84px); }
+  @media (max-width:560px){ .cs-ba{ grid-template-columns:1fr; } .cs-change-body .cs-ba{ margin-left:0; width:auto; } }
   .cs-ba.stack{ grid-template-columns:1fr; gap:26px; }
   .cs-shot{ margin:0; }
   .cs-shot img{ display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:var(--radius-sm); box-shadow:var(--shadow); background:#fff; }

@@ -327,6 +327,7 @@
   .cs-summary{ border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:var(--radius); background:var(--surface-2); padding:22px 26px; }
   .cs-summary-status{ display:inline-flex; align-items:center; gap:9px; font-family:var(--body); font-weight:700; font-size:13px; color:var(--ink); background:color-mix(in srgb, #1E9E6A 12%, var(--surface)); border:1px solid color-mix(in srgb, #1E9E6A 30%, var(--line)); border-radius:100px; padding:6px 14px 6px 12px; margin:0 0 16px; }
   .cs-summary-status .dot{ width:8px; height:8px; border-radius:50%; background:#1E9E6A; box-shadow:0 0 0 3px color-mix(in srgb, #1E9E6A 22%, transparent); flex:none; }
+  .cs-summary-status .cs-status-sub{ font-weight:600; color:var(--ink-muted); }
   .cs-summary-lead{ font-family:var(--display); font-weight:700; font-size:clamp(16px,2vw,19px); line-height:1.35; letter-spacing:-0.01em; color:var(--ink); margin:0 0 14px; }
   .cs-summary-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
   .cs-summary-list li{ position:relative; padding-left:22px; font-family:var(--body); font-size:15px; line-height:1.5; color:var(--ink-muted); }
@@ -555,12 +556,12 @@
 <section class="section">
   <div class="wrap cs-content">
     <div class="cs-summary">
-      <div class="cs-summary-status"><span class="dot" aria-hidden="true"></span>In active use on a live tour: two musicians and their manager are using it on the road right now.</div>
+      <div class="cs-summary-status"><span class="dot" aria-hidden="true"></span>In active use on a live tour <span class="cs-status-sub">· limited preview</span></div>
       <p class="cs-summary-lead">One product, two contexts: musicians plan the tour on web, and run the day on mobile.</p>
       <ul class="cs-summary-list">
         <li>Led product design end to end: UX, UI, and the design system.</li>
         <li>Owned translating conversations with touring musicians into product decisions.</li>
-        <li>The people touring with the app are also our research users: their feedback feeds each iteration.</li>
+        <li>Two musicians and their manager are using it on tour now, and they're also our research users: their feedback feeds each iteration.</li>
         <li>Two-person team, fully collaborative, working closely with engineering.</li>
       </ul>
     </div>
@@ -569,7 +570,7 @@
 
 <section class="section">
   <div class="wrap cs-content">
-    <div class="cs-note"><p><b>Stealth project.</b> The app is pre-launch, so I can't publicly share live product screens or detailed workflows. This case study focuses on the product-design process, decisions, principles, and systems I can discuss publicly.</p></div>
+    <div class="cs-note"><p><b>Stealth project.</b> The app is in limited preview, in use by a small group of real users but not yet rolled out widely, so I can't publicly share live product screens or detailed workflows. This case study focuses on the product-design process, decisions, principles, and systems I can discuss publicly.</p></div>
   </div>
 </section>
 

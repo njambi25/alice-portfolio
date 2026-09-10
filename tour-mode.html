@@ -355,20 +355,23 @@
   @media (max-width:640px){ .ctx{ grid-template-columns:1fr; gap:36px; justify-items:center; } }
   .ctx-item{ margin:0; width:100%; }
   .ctx .wf, .ctx2 .wf{ display:block; background:color-mix(in srgb, var(--ink) 11%, transparent); border-radius:4px; height:10px; }
-  .ctx-web{ border:1px solid var(--line); border-radius:12px; background:var(--surface); box-shadow:var(--shadow); overflow:hidden; }
-  .ctx-bar{ display:flex; gap:6px; align-items:center; padding:10px 12px; background:var(--surface-2); border-bottom:1px solid var(--line); }
-  .ctx-bar span{ width:9px; height:9px; border-radius:50%; background:var(--line); }
-  .ctx-web-body{ display:grid; grid-template-columns:78px 1fr; gap:14px; padding:16px; }
-  .ctx-side{ display:flex; flex-direction:column; gap:9px; }
+  .ctx-web{ width:100%; align-self:center; border:1px solid var(--line); border-radius:10px; background:var(--surface); box-shadow:var(--shadow); overflow:hidden; }
+  .ctx-bar{ display:flex; gap:6px; align-items:center; padding:9px 12px; background:var(--surface-2); border-bottom:1px solid var(--line); }
+  .ctx-bar span{ width:8px; height:8px; border-radius:50%; background:var(--line); flex:none; }
+  .ctx-url{ flex:1; height:9px; margin-left:8px; border-radius:5px; background:var(--line); }
+  .ctx-web-body{ display:grid; grid-template-columns:60px 1fr; gap:12px; padding:12px; }
+  .ctx-side{ display:flex; flex-direction:column; gap:8px; }
+  .ctx-side .wf{ height:8px; }
   .ctx-side .wf:first-child{ background:color-mix(in srgb, var(--accent) 32%, var(--surface-2)); }
-  .ctx-main{ display:flex; flex-direction:column; gap:12px; }
-  .ctx .wf-lg, .ctx2 .wf-lg{ height:24px; width:58%; }
-  .ctx-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-  .ctx-grid .wf{ height:42px; }
+  .ctx-main{ display:flex; flex-direction:column; gap:10px; }
+  .ctx-toolbar{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .ctx .wf-lg, .ctx2 .wf-lg{ height:13px; width:42%; }
+  .ctx2 .wf-btn{ height:16px; width:52px; border-radius:5px; background:color-mix(in srgb, var(--accent) 22%, var(--surface-2)); }
+  .ctx-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+  .ctx-grid .wf{ height:38px; }
   .ctx-rows{ display:flex; flex-direction:column; gap:8px; }
-  .ctx-rows .wf{ height:11px; }
-  .ctx-rows .wf:nth-child(2){ width:85%; }
-  .ctx-rows .wf:nth-child(3){ width:70%; }
+  .ctx-rows .wf{ height:9px; }
+  .ctx-rows .wf:nth-child(2){ width:82%; }
   .ctx-mob{ width:188px; margin:0 auto; border:1px solid var(--line); border-radius:26px; background:var(--surface); box-shadow:var(--shadow); overflow:hidden; }
   .ctx-notch{ position:relative; height:22px; background:var(--surface-2); border-bottom:1px solid var(--line); }
   .ctx-notch::after{ content:""; position:absolute; top:8px; left:50%; transform:translateX(-50%); width:46px; height:6px; border-radius:3px; background:var(--line); }
@@ -393,7 +396,7 @@
   .ctx2-ic svg{ width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
   .ctx2-head h3{ font-family:var(--display); font-weight:800; font-size:17px; letter-spacing:-0.01em; color:var(--ink); margin:0; }
   .ctx2-head p{ font-family:var(--body); font-size:13px; color:var(--ink-muted); margin:2px 0 0; }
-  .ctx2-frame{ display:flex; justify-content:center; padding:6px 0 2px; }
+  .ctx2-frame{ flex:1; display:flex; align-items:center; justify-content:center; padding:6px 0 2px; }
   .ctx2-caps{ list-style:none; margin:auto 0 0; padding:16px 0 0; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:12px; }
   .ctx2-caps li{ display:flex; align-items:center; gap:12px; font-family:var(--body); font-size:14.5px; font-weight:600; color:var(--ink); }
   .ctx2-caps svg{ width:19px; height:19px; flex:none; fill:none; stroke:var(--tc); stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
@@ -704,13 +707,13 @@
         </div>
         <div class="ctx2-frame">
           <div class="ctx-web" aria-hidden="true">
-            <div class="ctx-bar"><span></span><span></span><span></span></div>
+            <div class="ctx-bar"><span></span><span></span><span></span><i class="ctx-url"></i></div>
             <div class="ctx-web-body">
-              <div class="ctx-side"><span class="wf"></span><span class="wf"></span><span class="wf"></span><span class="wf"></span><span class="wf"></span></div>
+              <div class="ctx-side"><span class="wf"></span><span class="wf"></span><span class="wf"></span><span class="wf"></span></div>
               <div class="ctx-main">
-                <span class="wf wf-lg"></span>
+                <div class="ctx-toolbar"><span class="wf wf-lg"></span><span class="wf wf-btn"></span></div>
                 <div class="ctx-grid"><span class="wf"></span><span class="wf"></span><span class="wf"></span><span class="wf"></span><span class="wf"></span><span class="wf"></span></div>
-                <div class="ctx-rows"><span class="wf"></span><span class="wf"></span><span class="wf"></span></div>
+                <div class="ctx-rows"><span class="wf"></span><span class="wf"></span></div>
               </div>
             </div>
           </div>

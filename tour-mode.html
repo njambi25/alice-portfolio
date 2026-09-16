@@ -1006,6 +1006,7 @@
     for(var i=0;i<items.length;i++){
       if(items[i].sec.getBoundingClientRect().top - line <= 0) current = items[i]; else break;
     }
+    if(window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2){ current = items[items.length - 1]; }
     links.forEach(function(l){ l.classList.remove('active'); });
     current.link.classList.add('active');
   }

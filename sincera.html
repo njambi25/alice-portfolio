@@ -399,6 +399,15 @@
   }
   .navright a{ white-space:nowrap; }
   @media (max-width:640px){ .navright .resume-link{ display:none; } }
+
+  /* responsive pass: comfortable tap targets + legible small labels */
+  @media (max-width:1024px){
+    .navleft .navlink, .navright a, .cs-back, .xcs-back{ padding-top:7px; padding-bottom:7px; }
+    .k-link{ padding-top:6px; }
+  }
+  @media (max-width:800px){
+    .k-tags, .rq-step-cat, .cs-dlabel, .cs-hero-out b, .cs-zoom-label, .lbl, .pj-sub, .spec-lbl, .k-eyebrow, .k-num, .ds-label, .ds-t-cap{ font-size:11px !important; }
+  }
 </style>
 
 <div class="topnav">
